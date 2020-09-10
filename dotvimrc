@@ -1,0 +1,63 @@
+packloadall
+syntax on
+filetype plugin indent on
+
+" Omnicomplete
+set completeopt=menu
+
+" Tab completion
+set wildmode=longest,list,full
+set wildmenu
+
+" Be vimproved
+set nocompatible
+
+" Numbered lines
+set number
+
+" Wrap lines
+set whichwrap+=<,>,h,l,[,]
+
+" Keep visual selection after indent
+vmap > >gv
+vmap < <gv
+
+" jump to tabs
+nmap < gT
+nmap > gt
+nmap <F1> gT
+nmap <F3> gt
+
+" Intuitive backspaceing in insert mode
+set backspace=indent,eol,start
+
+" Search settings
+set hlsearch
+set wrap
+set smartcase
+set ignorecase
+" Indentations
+set autoindent
+set ruler
+set tabstop=4
+set shiftwidth=4
+set noet
+set nolist
+
+nmap <silent> <tab> ==
+imap <silent> <tab> <esc>==i
+
+" vim-prettier
+set enc=utf-8
+let g:prettier#exec_cmd_path = "~/node_modules/prettier/bin-prettier.js"
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_require_pragma = 0
+let g:prettier#quickfix_auto_focus = 0
+let g:prettier#quickfix_enabled = 1
+autocmd BufNewFile,BufRead *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html map <buffer> <Tab> <Plug>(Prettier)
+
+" vim-go
+autocmd BufNewFile,BufRead *.go map <buffer> <silent> <Tab> :GoImports<CR>
+let g:go_fmt_command = "goimports"
+
+
